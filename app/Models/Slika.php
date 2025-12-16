@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Slika extends Model
 {
     protected $fillable = [
+        'galerija_id',
         'putanja_fotografije',
         'cena',
         'naziv',
@@ -23,5 +24,9 @@ class Slika extends Model
 
     public function stavka(){
         return $this->hasOne(Stavka::class,'slika_id');
+    }
+
+    public function galerija(){
+        return $this->belongsTo(Galerija::class,'galerija_id');
     }
 }

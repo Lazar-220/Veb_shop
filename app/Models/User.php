@@ -21,7 +21,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'uloga_id'
+        'uloga'
     ];
 
     /**
@@ -47,9 +47,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function uloga(){
-        return $this->belongsTo(Uloga::class,'uloga_id');      //kada model ima FK onda ide belongsTo, a u drugoj tabeli hasMany/hasOne
-    }
+    //kada model ima FK onda ide belongsTo, a u drugoj tabeli hasMany/hasOne
 
     public function porudzbine(){
         return $this->hasMany(Porudzbina::class,'user_id');
