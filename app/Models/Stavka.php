@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Stavka extends Model
 {
+    use HasFactory;
     protected $table='stavke';
     protected $fillable = [
         'porudzbina_id',
