@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('naziv',50);
             $table->string('tehnika',50);
             $table->decimal('visina_cm',15,2);
-            $table->decimal('sirina_cm',15,2);
+            $table->decimal('sirina_cm',15,2);//integer stavi
             $table->boolean('dostupna')->default(true);
             $table->timestamps();
         });

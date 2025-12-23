@@ -38,13 +38,14 @@ class DatabaseSeeder extends Seeder
         Galerija::factory()->create();
 
         $tehnike=Tehnika::factory(7)->create();
+        
         $slike=Slika::factory(30)->create();
         foreach($slike as $slika){
-            $slika->tehnike()->attach(
+            $slika->tehnike()->sync(
                 $tehnike->random(rand(1,3))->pluck('id')->toArray()
             );
         }
-        // tehnike()->attach([1,4,2]) ubacuje u pivot tabelu 1 slika_id i niz tehnika_id zahvaljujuci fji:
+        // tehnike()->sync([1,4,2]) ubacuje u pivot tabelu 1 slika_id i niz tehnika_id zahvaljujuci fji(i brise stare veze sa tom slika_id):
         // public function tehnike(){
         //     return $this->belongsToMany(Tehnika::class,'slika_tehnika','slika_id','tehnika_id');
         // }

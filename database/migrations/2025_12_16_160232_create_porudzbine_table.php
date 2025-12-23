@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('porudzbine', function (Blueprint $table) {
-            $table->id();
+            $table->id();    //user_id OBAVEZNO nullable()
             $table->foreignId('user_id')->constrained('users')->restrictOnDelete();
             $table->date('datum');
             $table->decimal('ukupna_cena',15,2);
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('adresa',100);
             $table->string('postanski_broj',20);
             $table->string('telefon',30);
-            $table->boolean('poslato')->default(true);
+            $table->boolean('poslato')->default(true);//false
             $table->timestamps();
         });
     }

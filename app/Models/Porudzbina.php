@@ -29,7 +29,7 @@ class Porudzbina extends Model
         'poslato'=>'boolean'
     ];
 
-    public function korisnik(){
+    public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
 
