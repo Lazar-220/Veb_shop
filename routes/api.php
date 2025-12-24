@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Authentication\EmailVerificationController;
+use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\LogoutController;
+use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\GalerijaController;
 use App\Http\Controllers\PorudzbinaController;
 use App\Http\Controllers\SlikaController;
@@ -7,6 +11,24 @@ use App\Http\Controllers\TehnikaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+
+
+
+Route::post('/verify/email/{id}',[EmailVerificationController::class],'verify')
+->name('verification.verify');
+
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);
+
+
+Route::middleware('auth:sanctum')->group(function(){
+    
+    Route::post('/logout',[LogoutController::class,'logout']);
+});
+
+Route::get('/email/verify/{id}', [EmailVerificationController::class, 'verify'])
+    ->name('verification.verify');
 
 // dodaj za dodavanje, izmenu i brisanje prodavca
 
