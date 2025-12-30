@@ -119,7 +119,7 @@ class SlikaController extends Controller
         $validator=Validator::make($request->all(),[
             'galerija_id'=>['required','integer','exists:galerija,id'],
             // 'putanja_fotografije'=>['nullable','string',new PostojiPutanjaSlike()],
-            'putanja_fotografije'=>['nullable','image','mimes:jpg,png,jpeg','max:2048'],
+            'putanja_fotografije'=>['nullable','image','mimes:jpg,png,jpeg','max:2048'], //treba?: php artisan storage:link
             'cena'=>['required','numeric','min:0'],
             'naziv'=>['required','string','max:50'],
             'visina_cm'=>['required','numeric','min:0'],
