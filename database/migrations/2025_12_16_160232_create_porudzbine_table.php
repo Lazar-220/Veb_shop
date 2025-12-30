@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();    //user_id OBAVEZNO nullable()
             $table->foreignId('user_id')->constrained('users')->restrictOnDelete();
             $table->date('datum');
-            $table->decimal('ukupna_cena',15,2);
+            $table->decimal('ukupna_cena',15,2);//->unsigned() + dodaj 4 atributa za popust
             $table->string('ime',30);
             $table->string('prezime',30);
             $table->enum('drzava',['Srbija'])->default('Srbija');
